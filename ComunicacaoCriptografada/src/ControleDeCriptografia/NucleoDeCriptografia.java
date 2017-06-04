@@ -38,13 +38,17 @@ public class NucleoDeCriptografia {
 
 	}
 
-	public byte[] encriptarMensagem(String mensagem, PrivateKey chavePublica) {
+	public byte[] encriptarMensagem(String mensagem, Criptografavel criptografavel) {
+		Gson gson = new Gson();
+		MensagemDTO msgDTO = new MensagemDTO(mensagem, criptografavel.getChavePublica());
+		mensagem = msgDTO.toString();
+		
 		ArrayList<String> retorno = new ArrayList<String>();
 		String parcial;
 		for (int i = 0; i < mensagem.length() - 1; i += 100) {
 			parcial = mensagem.length() >= i + 100 ? mensagem.substring(i, i + 100) : mensagem.substring(i);
 			try {
-				this.cipher.init(Cipher.ENCRYPT_MODE, chavePublica);
+				this.cipher.init(Cipher.ENCRYPT_MODE, criptografavel.getChavePublicaExterna());
 
 				retorno.add(Base64.encodeBase64String(cipher.doFinal(parcial.getBytes("UTF-8"))));
 
@@ -53,21 +57,19 @@ public class NucleoDeCriptografia {
 			}
 
 		}
-		
-		Gson gson = new Gson();
+
 		return gson.toJson(retorno).getBytes();
-		
-		
+
 	}
 
-	public String decriptarMensagem(byte[] mensagem, PublicKey chavePrivada) {
+	public String decriptarMensagem(byte[] mensagem, Criptografavel criptografavel) {
 		String retorno = "";
 		Gson gson = new Gson();
 		ArrayList<String> dados = gson.fromJson(new String(mensagem), ArrayList.class);
-		
+
 		for (String parcial : dados) {
 			try {
-				this.cipher.init(Cipher.DECRYPT_MODE, chavePrivada);
+				this.cipher.init(Cipher.DECRYPT_MODE, criptografavel.getChavePrivada());
 
 				retorno += new String(cipher.doFinal(Base64.decodeBase64(parcial)), "UTF-8");
 
@@ -75,6 +77,11 @@ public class NucleoDeCriptografia {
 				e.printStackTrace();
 			}
 		}
-		return retorno;
+		
+		MensagemDTO msgDTO = gson.fromJson(retorno, MensagemDTO.class);
+		
+		criptografavel.setChavePublicaExterna(msgDTO.getChavePublica());
+		
+		return msgDTO.getMensagem();
 	}
 }

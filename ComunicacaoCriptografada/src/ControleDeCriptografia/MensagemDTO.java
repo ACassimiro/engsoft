@@ -2,11 +2,13 @@ package ControleDeCriptografia;
 
 import java.security.PrivateKey;
 
+import com.google.gson.Gson;
+
 public class MensagemDTO {
-	String mensagem;
-	byte[] chavePublica;
-	
-	public MensagemDTO(String mensagem, PrivateKey chavePublica){
+	private String mensagem;
+	private byte[] chavePublica;
+
+	public MensagemDTO(String mensagem, PrivateKey chavePublica) {
 		this.mensagem = mensagem;
 		this.chavePublica = chavePublica.getEncoded();
 	}
@@ -27,4 +29,8 @@ public class MensagemDTO {
 		this.chavePublica = chavePublica;
 	}
 
+	public String toString(){
+		Gson gson = new Gson();
+		return gson.toJson(this);
+	}
 }

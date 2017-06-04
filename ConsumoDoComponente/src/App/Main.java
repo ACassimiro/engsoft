@@ -4,79 +4,48 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
+import ControleDeCriptografia.MensagemDTO;
 import ControleDeCriptografia.NucleoDeCriptografia;
-
 
 public class Main {
 
 	public static void main(String[] args) {
 		Gson g = new Gson();
 
-		Server conductor = new Server();
+		Server server = new Server();
 		Cliente cliente = new Cliente();
+		cliente.setChavePublicaExterna(server.getChavePublica().getEncoded());
 		NucleoDeCriptografia cripto = NucleoDeCriptografia.getInstancia();
 
-		// Montando o DTO de envio de mensagem com a chave da conductor como
-		// parametro
-		MensagemDTO m = new MensagemDTO("DadoCampo1", "DadoCampo2", conductor.getChavePublica().getEncoded());
+		String enviado = "Requisição ao server...";
 
-		System.out.println("Chave Conductor: " + new String(m.getChavePublica()));
-		String Mensagem = g.toJson(m);
+		System.out.println("Enviado [Cliente -> Servidor]: " + enviado);
 
-		// Json de saida
-		System.out.println("DTO de Saida da CDT: " + Mensagem + "\n*\n*\n*");
-
-		// criptografa a mensagem em partes de tamanho 100 pra não estourar o
-		// limite de 117 da chave
-		ArrayList<String> ListaDeSaida = cripto.encriptarMensagem(Mensagem, cliente.getChavePublica());
-		Mensagem = g.toJson(ListaDeSaida);
-
-		// Mensagem enviada
-		System.out.println("Mensagem de saida da CDT: " + Mensagem + "\n*\n*\n*");
-
-		// ------enviando mensagem via web---------//
-
-		System.out.println("Mensagem recebida no cliente:" + Mensagem + "\n*\n*\n*");
-
-		ArrayList<String> ListaEntrada = g.fromJson(Mensagem, ArrayList.class);
-
-		// mensagem recebida pelo cliente, que usa a chave privada dele para
-		// abrir a mensagem
-		Mensagem = cripto.decriptarMensagem(ListaEntrada, cliente.getChavePrivada());
-
-		System.out.println("DTO recebido no cliente:" + Mensagem + "\n*\n*\n*");
-
-		MensagemDTO m2 = g.fromJson(Mensagem, MensagemDTO.class);
-
-		String a = new String(m.getChavePublica());
-		String b = new String(m2.getChavePublica());
-		cliente.setChavePublicaExterna(m2.getChavePublica());
-
-		if (a.equals(b))
-			System.out.println("Chave Correta!!!\n\n");
-		System.out.println("Chave Conductor Recebida: " + new String(m2.getChavePublica())+ "\n\n-------");
-
-		// FLUXO DE RETORNO PARA A CONDCUCTOR USANDO A CHAVE RECEBIDA
-
-		MensagemDTO m3 = new MensagemDTO("RETORNO CAMPO 1", "RETORNO CAMPO 2", cliente.getChavePublica().getEncoded());
-		String MensagemFinal = g.toJson(m3);
-
-		// Json de saida
-		System.out.println("DTO de Saida do Cliente: " + MensagemFinal + "\n*\n*\n*");
-
-		// criptografa a mensagem em partes de tamanho 100 pra não estourar o
-		// limite de 117 da chave
-		ArrayList<String> ListaDeSaida2 = cripto.encriptarMensagem(MensagemFinal, cliente.getChavePublicaExterna());
-		MensagemFinal = g.toJson(ListaDeSaida2);
-
-		// Mensagem enviada
-		System.out.println("Mensagem de saida do Cliente: " + MensagemFinal + "\n*\n*\n*");
-
-		// ------enviando mensagem via web---------//
+		// método de encriptar mensagem já manda a chave publica do cliente no
+		// processo
+		byte[] encriptado = cripto.encriptarMensagem(enviado, cliente);
 		
-		ArrayList<String> ListaEntrada2 = g.fromJson(MensagemFinal, ArrayList.class);
-		MensagemFinal = cripto.decriptarMensagem(ListaEntrada2, conductor.getChavePrivada());
-		System.out.println("DTO recebido no cliente:" + MensagemFinal + "\n*\n*\n*");
+		System.out.println("Mensagem Middle [Cliente -> Servidor]: " + new String(encriptado));
+		// aqui o server ja recebe a chave publica do cliente, e pode
+		// criptografar mensagens pra ele
+		String recebido = cripto.decriptarMensagem(encriptado, server);
+
+		System.out.println("Recebido [Cliente -> Servidor]: " + recebido);
+
+		
+		String enviado2 = "Resposta ao cliente...";
+		System.out.println("Enviado [Servidor -> Cliente]: " + enviado2);
+		
+		// método de encriptar mensagem já manda a chave publica do cliente no
+		// processo
+		byte[] encriptado2 = cripto.encriptarMensagem(enviado2, server);
+
+		System.out.println("Mensagem Middle [Servidor -> Cliente]: " + new String(encriptado2));
+		// aqui o server ja recebe a chave publica do cliente, e pode
+		// criptografar mensagens pra ele
+		String recebido2 = cripto.decriptarMensagem(encriptado2, cliente);
+
+		System.out.println("Recebido [Servidor -> Cliente]: " + recebido2);
 	}
 
 }
