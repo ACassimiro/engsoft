@@ -10,6 +10,7 @@ import ControleDeCriptografia.NucleoDeCriptografia;
 public class Main {
 
 	public static void main(String[] args) {
+		try{
 		Gson g = new Gson();
 
 		Server server = new Server();
@@ -45,6 +46,9 @@ public class Main {
 		String recebido2 = cripto.decriptarMensagem(encriptado2, cliente);
 
 		System.out.println("Recebido [Servidor -> Cliente]: " + recebido2);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 }

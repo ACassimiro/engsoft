@@ -10,7 +10,7 @@ import ControleDeCriptografia.Criptografavel;
 
 public class Server extends Criptografavel {
 
-	public Server() {
+	public Server() throws NoSuchAlgorithmException {
 		super.gerarChaves();
 	}
 

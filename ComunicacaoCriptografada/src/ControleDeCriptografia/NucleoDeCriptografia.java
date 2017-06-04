@@ -1,5 +1,6 @@
 package ControleDeCriptografia;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -97,19 +98,21 @@ public class NucleoDeCriptografia {
 	 * 
 	 *         *As chaves geradas e utilizadas nessa implementação são geradas
 	 *         com o algorimo RSA e possuem 1024 bits de comprimento.
-	 * @throws InvalidKeySpecException
-	 * @throws NoSuchAlgorithmException
 	 * @throws InvalidKeyException
 	 * @throws BadPaddingException
 	 * @throws IllegalBlockSizeException
 	 * @throws UnsupportedEncodingException
+	 * @throws InvalidKeySpecException
+	 * @throws NoSuchAlgorithmException
 	 */
 	public String decriptarMensagem(byte[] mensagem, Criptografavel criptografavel)
-			throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, UnsupportedEncodingException,
-			IllegalBlockSizeException, BadPaddingException {
+			throws InvalidKeyException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException,
+			NoSuchAlgorithmException, InvalidKeySpecException {
+		MensagemDTO msgDTO = null;
 		String retorno = "";
 		Gson gson = new Gson();
 		ArrayList<String> dados = gson.fromJson(new String(mensagem), ArrayList.class);
+		// try{
 
 		for (String parcial : dados) {
 
@@ -119,7 +122,7 @@ public class NucleoDeCriptografia {
 
 		}
 
-		MensagemDTO msgDTO = gson.fromJson(retorno, MensagemDTO.class);
+		msgDTO = gson.fromJson(retorno, MensagemDTO.class);
 
 		criptografavel.setChavePublicaExterna(msgDTO.getChavePublica());
 
