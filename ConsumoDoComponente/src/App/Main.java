@@ -18,11 +18,11 @@ public class Main {
 		cliente.setChavePublicaExterna(server.getChavePublica().getEncoded());
 		NucleoDeCriptografia cripto = NucleoDeCriptografia.getInstancia();
 
-		String enviado = "Requisição ao server...";
+		String enviado = "Requisicao ao server...";
 
 		System.out.println("Enviado [Cliente -> Servidor]: " + enviado);
 
-		// método de encriptar mensagem já manda a chave publica do cliente no
+		// mï¿½todo de encriptar mensagem ja manda a chave publica do cliente no
 		// processo
 		byte[] encriptado = cripto.encriptarMensagem(enviado, cliente);
 
@@ -36,7 +36,7 @@ public class Main {
 		String enviado2 = "Resposta ao cliente...";
 		System.out.println("Enviado [Servidor -> Cliente]: " + enviado2);
 
-		// método de encriptar mensagem já manda a chave publica do cliente no
+		// mï¿½todo de encriptar mensagem ja manda a chave publica do cliente no
 		// processo
 		byte[] encriptado2 = cripto.encriptarMensagem(enviado2, server);
 

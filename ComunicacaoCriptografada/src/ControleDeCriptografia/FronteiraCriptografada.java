@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 public abstract class FronteiraCriptografada {
 
 	/**
+	 * @version 0.1
 	 * @param mensagem
 	 *            Mensagem para envio ao endpoint de comunicacao.
 	 * @param chavePublica

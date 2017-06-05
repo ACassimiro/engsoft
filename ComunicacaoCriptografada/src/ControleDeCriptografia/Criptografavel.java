@@ -37,6 +37,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
+	 * @version 0.1
 	 * @return Retorna a chave publica do objeto criptografavel.
 	 *
 	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
@@ -47,6 +48,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
+	 * @version 0.1
 	 * @param chavePublica
 	 *            Chave publica do objeto criptografavel.
 	 *
@@ -58,6 +60,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
+	 * @version 0.1
 	 * @return Retorna a chave privada do objeto criptografavel.
 	 *
 	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
@@ -68,6 +71,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
+	 * @version 0.1
 	 * @param chavePrivada
 	 *            Chave privada do objeto criptografavel.
 	 *
@@ -79,6 +83,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
+	 * @version 0.1
 	 * @return Retorna a chave publica externa do objeto criptografavel. Obs.: A
 	 *         chave publica externa refere-se a chave de crioptografia do
 	 *         endpoint de comunicacao.
@@ -91,6 +96,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
+	 * @version 0.1
 	 * @param chavePublicaExterna
 	 *            Chave de criptografia publ�ica do endpoint de comunicacao.
 	 *

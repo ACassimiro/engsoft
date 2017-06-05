@@ -13,6 +13,7 @@ public class MensagemDTO {
 	private byte[] chavePublica;
 
 	/**
+	 * @version 0.1
 	 * @param mensagem
 	 *            Mensagem contendo dados a serem criptografados
 	 * @param chavePublica
@@ -24,6 +25,7 @@ public class MensagemDTO {
 	}
 
 	/**
+	 * @version 0.1
 	 * @return Retorna a mensagem do MensagemDTO.
 	 */
 	public String getMensagem() {
@@ -31,6 +33,7 @@ public class MensagemDTO {
 	}
 
 	/**
+	 * @version 0.1
 	 * @param mensagem
 	 *            Define a mensagem do MensagemDTO.
 	 */
@@ -39,6 +42,7 @@ public class MensagemDTO {
 	}
 
 	/**
+	 * @version 0.1
 	 * @return Retorna a chave publica do MensagemDTO em um array de bytes.
 	 */
 	public byte[] getChavePublica() {
@@ -46,6 +50,7 @@ public class MensagemDTO {
 	}
 
 	/**
+	 * @version 0.1
 	 * @param chavePublica
 	 *            Define o valor da chave publica do MensagemDTO em um array de
 	 *            bytes.
