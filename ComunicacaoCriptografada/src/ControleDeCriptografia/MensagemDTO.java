@@ -5,7 +5,7 @@ import java.security.PrivateKey;
 import com.google.gson.Gson;
 
 /**
- * @author José Alves Monteiro Neto
+ * @author Abraao, Aellison, Jose, Pedro
  *
  */
 public class MensagemDTO {
