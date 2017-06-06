@@ -22,7 +22,7 @@ public class Main {
 
 		System.out.println("Enviado [Cliente -> Servidor]: " + enviado);
 
-		// m�todo de encriptar mensagem ja manda a chave publica do cliente no
+		// metodo de encriptar mensagem ja manda a chave publica do cliente no
 		// processo
 		byte[] encriptado = cripto.encriptarMensagem(enviado, cliente);
 
@@ -36,7 +36,7 @@ public class Main {
 		String enviado2 = "Resposta ao cliente...";
 		System.out.println("Enviado [Servidor -> Cliente]: " + enviado2);
 
-		// m�todo de encriptar mensagem ja manda a chave publica do cliente no
+		// metodo de encriptar mensagem ja manda a chave publica do cliente no
 		// processo
 		byte[] encriptado2 = cripto.encriptarMensagem(enviado2, server);
 
