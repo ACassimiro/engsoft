@@ -16,12 +16,12 @@ import org.apache.commons.codec.binary.Base64;
 import com.google.gson.Gson;
 
 /**
- * @author José Alves Monteiro Neto
+ * @author Abraao, Aellison, Jose, Pedro
  *
- *         Objeto de manipulação de mensageria e criptografia.
- * 
- * 
- *         *As chaves geradas e utilizadas nessa implementação são geradas com o
+ *         Objeto de manipulacaoo de mensageria e criptografia.
+ *
+ *
+ *         *As chaves geradas e utilizadas nessa implementacao sao geradas com o
  *         algorimo RSA e possuem 1024 bits de comprimento.
  */
 public class NucleoDeCriptografia {
@@ -37,6 +37,7 @@ public class NucleoDeCriptografia {
 	}
 
 	/**
+	 * @version 0.1
 	 * @return Singleton do Nucleo de Criptografia
 	 */
 	public static NucleoDeCriptografia getInstancia() {
@@ -49,6 +50,7 @@ public class NucleoDeCriptografia {
 	}
 
 	/**
+	 * @version 0.1
 	 * @param mensagem
 	 *            Mensagem a ser criptografada
 	 * @param criptografavel
@@ -56,8 +58,8 @@ public class NucleoDeCriptografia {
 	 *            sera utilizada para criptografar a mensagem no campo
 	 *            ChavePublicaExterna.
 	 * @return Retorna o pacote de criptografado completo em um array de bytes.
-	 * 
-	 *         *As chaves geradas e utilizadas nessa implementação são geradas
+	 *
+	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
 	 *         com o algorimo RSA e possuem 1024 bits de comprimento.
 	 * @throws InvalidKeyException
 	 * @throws UnsupportedEncodingException
@@ -86,6 +88,7 @@ public class NucleoDeCriptografia {
 	}
 
 	/**
+	 * @version 0.1
 	 * @param mensagem
 	 *            Array de bytes a ser decriptografado.
 	 * @param criptografavel
@@ -95,8 +98,8 @@ public class NucleoDeCriptografia {
 	 * @return Retorna a mensagem decriptografada e insere a chavePublica que
 	 *         veio na mensagem no campo ChavePublicaExterna do objeto
 	 *         criptografavel.
-	 * 
-	 *         *As chaves geradas e utilizadas nessa implementação são geradas
+	 *
+	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
 	 *         com o algorimo RSA e possuem 1024 bits de comprimento.
 	 * @throws InvalidKeyException
 	 * @throws BadPaddingException

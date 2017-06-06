@@ -5,12 +5,13 @@ import java.security.PrivateKey;
 import com.google.gson.Gson;
 
 /**
- * @author José Alves Monteiro Neto
+ * @author Abraao, Aellison, Jose, Pedro
  *
  */
 public abstract class FronteiraCriptografada {
 
 	/**
+	 * @version 0.1
 	 * @param mensagem
 	 *            Mensagem para envio ao endpoint de comunicacao.
 	 * @param chavePublica
@@ -18,8 +19,8 @@ public abstract class FronteiraCriptografada {
 	 *            em endpoint de comunicacao.
 	 * @return Retorna o json de um Data Transfer Object (DTO) contendo a
 	 *         mensagem e a chave publica.
-	 * 
-	 *         *As chaves geradas e utilizadas nessa implementação são geradas
+	 *
+	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
 	 *         com o algorimo RSA e possuem 1024 bits de comprimento.
 	 */
 	public final String gerarMensagemParaEnvio(String mensagem, PrivateKey chavePublica) {

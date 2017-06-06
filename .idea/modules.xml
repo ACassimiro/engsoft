@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ComunicacaoCriptografada/ComunicacaoCriptografada.iml" filepath="$PROJECT_DIR$/ComunicacaoCriptografada/ComunicacaoCriptografada.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConsumoDoComponente/ConsumoDoComponente.iml" filepath="$PROJECT_DIR$/ConsumoDoComponente/ConsumoDoComponente.iml" />
+      <module fileurl="file://$PROJECT_DIR$/engsoft.iml" filepath="$PROJECT_DIR$/engsoft.iml" />
+    </modules>
+  </component>
+</project>
