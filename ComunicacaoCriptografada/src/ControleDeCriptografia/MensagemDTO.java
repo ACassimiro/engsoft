@@ -5,6 +5,8 @@ import java.security.PrivateKey;
 import com.google.gson.Gson;
 
 /**
+ * @version 0.1
+ * @since 0.1
  * @author Abraao, Aellison, Jose, Pedro
  *
  */
@@ -14,6 +16,7 @@ public class MensagemDTO {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @param mensagem
 	 *            Mensagem contendo dados a serem criptografados
 	 * @param chavePublica
@@ -26,6 +29,7 @@ public class MensagemDTO {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @return Retorna a mensagem do MensagemDTO.
 	 */
 	public String getMensagem() {
@@ -34,6 +38,7 @@ public class MensagemDTO {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @param mensagem
 	 *            Define a mensagem do MensagemDTO.
 	 */
@@ -43,6 +48,7 @@ public class MensagemDTO {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @return Retorna a chave publica do MensagemDTO em um array de bytes.
 	 */
 	public byte[] getChavePublica() {
@@ -51,6 +57,7 @@ public class MensagemDTO {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @param chavePublica
 	 *            Define o valor da chave publica do MensagemDTO em um array de
 	 *            bytes.

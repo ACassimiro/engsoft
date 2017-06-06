@@ -38,6 +38,7 @@ public class NucleoDeCriptografia {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @return Singleton do Nucleo de Criptografia
 	 */
 	public static NucleoDeCriptografia getInstancia() {
@@ -51,6 +52,7 @@ public class NucleoDeCriptografia {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @param mensagem
 	 *            Mensagem a ser criptografada
 	 * @param criptografavel
@@ -89,6 +91,7 @@ public class NucleoDeCriptografia {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @param mensagem
 	 *            Array de bytes a ser decriptografado.
 	 * @param criptografavel

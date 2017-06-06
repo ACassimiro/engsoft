@@ -11,12 +11,13 @@ import java.security.spec.PKCS8EncodedKeySpec;
 
 /**
  * @author Abraao, Aellison, Jose, Pedro
+ * @since 0.1
+ * @version 0.1
  *
- *         Entidades de fronteiras de comunicacao devem extender essa classe,
- *         para gerarem chaves criptograficas.
+ * <p>
+ *		Entidades de fronteiras de comunicacao devem extender essa classe,
+ *		para gerarem chaves criptograficas.
  *
- *         *As chaves geradas e utilizadas nessa implementacao sao geradas com o
- *         algorimo RSA e possuem 1024 bits de comprimento.
  *
  */
 public abstract class Criptografavel {
@@ -24,6 +25,10 @@ public abstract class Criptografavel {
 	private PublicKey chavePrivada;
 	private PrivateKey chavePublicaExterna;
 
+	/**
+	 * @version 0.1
+	 * @since 0.1
+	 */
 	protected void gerarChaves() throws NoSuchAlgorithmException {
 		KeyPairGenerator geradorDeChave;
 		KeyPair parDeChaves;
@@ -38,6 +43,7 @@ public abstract class Criptografavel {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @return Retorna a chave publica do objeto criptografavel.
 	 *
 	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
@@ -49,6 +55,7 @@ public abstract class Criptografavel {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @param chavePublica
 	 *            Chave publica do objeto criptografavel.
 	 *
@@ -61,6 +68,7 @@ public abstract class Criptografavel {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @return Retorna a chave privada do objeto criptografavel.
 	 *
 	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
@@ -72,6 +80,7 @@ public abstract class Criptografavel {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @param chavePrivada
 	 *            Chave privada do objeto criptografavel.
 	 *
@@ -84,6 +93,7 @@ public abstract class Criptografavel {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @return Retorna a chave publica externa do objeto criptografavel. Obs.: A
 	 *         chave publica externa refere-se a chave de crioptografia do
 	 *         endpoint de comunicacao.
@@ -97,6 +107,7 @@ public abstract class Criptografavel {
 
 	/**
 	 * @version 0.1
+	 * @since 0.1
 	 * @param chavePublicaExterna
 	 *            Chave de criptografia publ�ica do endpoint de comunicacao.
 	 *
