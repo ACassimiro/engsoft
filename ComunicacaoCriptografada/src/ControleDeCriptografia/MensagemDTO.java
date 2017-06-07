@@ -1,6 +1,7 @@
 package ControleDeCriptografia;
 
 import java.security.PrivateKey;
+import java.security.PublicKey;
 
 import com.google.gson.Gson;
 
@@ -22,7 +23,7 @@ public class MensagemDTO {
 	 * @param chavePublica
 	 *            Chave publica para envio ao endpoint de comunicacao
 	 */
-	public MensagemDTO(String mensagem, PrivateKey chavePublica) {
+	public MensagemDTO(String mensagem, PublicKey chavePublica) {
 		this.mensagem = mensagem;
 		this.chavePublica = chavePublica.getEncoded();
 	}

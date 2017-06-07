@@ -8,22 +8,23 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 
 /**
  * @author Abraao, Aellison, Jose, Pedro
  * @since 0.1
  * @version 0.1
  *
- * <p>
- *		Entidades de fronteiras de comunicacao devem extender essa classe,
- *		para gerarem chaves criptograficas.
+ *          <p>
+ *          Entidades de fronteiras de comunicacao devem extender essa classe,
+ *          para gerarem chaves criptograficas.
  *
  *
  */
 public abstract class Criptografavel {
-	private PrivateKey chavePublica;
-	private PublicKey chavePrivada;
-	private PrivateKey chavePublicaExterna;
+	private PrivateKey chavePrivada;
+	private PublicKey chavePublica;
+	private PublicKey chavePublicaExterna;
 
 	/**
 	 * @version 0.1
@@ -36,8 +37,8 @@ public abstract class Criptografavel {
 		geradorDeChave = KeyPairGenerator.getInstance("RSA");
 		geradorDeChave.initialize(1024);
 		parDeChaves = geradorDeChave.generateKeyPair();
-		this.chavePublica = parDeChaves.getPrivate();
-		this.chavePrivada = parDeChaves.getPublic();
+		this.chavePrivada = parDeChaves.getPrivate();
+		this.chavePublica = parDeChaves.getPublic();
 
 	}
 
@@ -49,7 +50,7 @@ public abstract class Criptografavel {
 	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
 	 *         com o algorimo RSA e possuem 1024 bits de comprimento.
 	 */
-	public PrivateKey getChavePublica() {
+	public PublicKey getChavePublica() {
 		return chavePublica;
 	}
 
@@ -62,7 +63,7 @@ public abstract class Criptografavel {
 	 *            *As chaves geradas e utilizadas nessa implementacao sao
 	 *            geradas com o algorimo RSA e possuem 1024 bits de comprimento.
 	 */
-	public void setChavePublica(PrivateKey chavePublica) {
+	public void setChavePublica(PublicKey chavePublica) {
 		this.chavePublica = chavePublica;
 	}
 
@@ -74,7 +75,7 @@ public abstract class Criptografavel {
 	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
 	 *         com o algorimo RSA e possuem 1024 bits de comprimento.
 	 */
-	public PublicKey getChavePrivada() {
+	public PrivateKey getChavePrivada() {
 		return chavePrivada;
 	}
 
@@ -87,7 +88,7 @@ public abstract class Criptografavel {
 	 *            *As chaves geradas e utilizadas nessa implementacao sao
 	 *            geradas com o algorimo RSA e possuem 1024 bits de comprimento.
 	 */
-	public void setChavePrivada(PublicKey chavePrivada) {
+	public void setChavePrivada(PrivateKey chavePrivada) {
 		this.chavePrivada = chavePrivada;
 	}
 
@@ -101,7 +102,7 @@ public abstract class Criptografavel {
 	 *         *As chaves geradas e utilizadas nessa implementacao sao geradas
 	 *         com o algorimo RSA e possuem 1024 bits de comprimento.
 	 */
-	public PrivateKey getChavePublicaExterna() {
+	public PublicKey getChavePublicaExterna() {
 		return chavePublicaExterna;
 	}
 
@@ -116,11 +117,12 @@ public abstract class Criptografavel {
 	 * @throws NoSuchAlgorithmException
 	 * @throws InvalidKeySpecException
 	 */
-	public void setChavePublicaExterna(byte[] chavePublicaExterna) throws NoSuchAlgorithmException, InvalidKeySpecException {
+	public void setChavePublicaExterna(byte[] chavePublicaExterna)
+			throws NoSuchAlgorithmException, InvalidKeySpecException {
 
-		PKCS8EncodedKeySpec reestrutuDaChave = new PKCS8EncodedKeySpec(chavePublicaExterna);
+		X509EncodedKeySpec reestrutuDaChave = new X509EncodedKeySpec(chavePublicaExterna);
 		KeyFactory keyfactory = KeyFactory.getInstance("RSA");
-		this.chavePublicaExterna = keyfactory.generatePrivate(reestrutuDaChave);
+		this.chavePublicaExterna = keyfactory.generatePublic(reestrutuDaChave);
 
 	}
 
