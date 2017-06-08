@@ -13,7 +13,7 @@ import java.security.spec.X509EncodedKeySpec;
 /**
  * @author Abraao, Aellison, Jose, Pedro
  * @since 0.1
- * @version 0.1
+ * @version 0.2
  *
  *          <p>
  *          Entidades de fronteiras de comunicacao devem extender essa classe,
@@ -27,7 +27,7 @@ public abstract class Criptografavel {
 	private PublicKey chavePublicaExterna;
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 */
 	protected void gerarChaves() throws NoSuchAlgorithmException {
@@ -43,7 +43,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @return Retorna a chave publica do objeto criptografavel.
 	 *
@@ -55,7 +55,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @param chavePublica
 	 *            Chave publica do objeto criptografavel.
@@ -68,7 +68,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @return Retorna a chave privada do objeto criptografavel.
 	 *
@@ -80,7 +80,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @param chavePrivada
 	 *            Chave privada do objeto criptografavel.
@@ -93,7 +93,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @return Retorna a chave publica externa do objeto criptografavel. Obs.: A
 	 *         chave publica externa refere-se a chave de crioptografia do
@@ -107,7 +107,7 @@ public abstract class Criptografavel {
 	}
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @param chavePublicaExterna
 	 *            Chave de criptografia publ�ica do endpoint de comunicacao.

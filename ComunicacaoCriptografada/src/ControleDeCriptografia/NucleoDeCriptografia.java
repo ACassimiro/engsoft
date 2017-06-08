@@ -37,7 +37,7 @@ public class NucleoDeCriptografia {
 	}
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @return Singleton do Nucleo de Criptografia
 	 */
@@ -51,7 +51,7 @@ public class NucleoDeCriptografia {
 	}
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @param mensagem
 	 *            Mensagem a ser criptografada
@@ -90,7 +90,7 @@ public class NucleoDeCriptografia {
 	}
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @param mensagem
 	 *            Array de bytes a ser decriptografado.
