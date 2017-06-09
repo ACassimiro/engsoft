@@ -2,6 +2,18 @@ package Testes;
 
 import java.util.ArrayList;
 
+/**
+ * @author Abraao, Aellison, Jose, Pedro
+ * @since 0.2
+ * @version 0.2
+ *
+ *	Classe que realiza todos os testes
+ *          <p>
+ *
+ *
+ *
+ */
+
 import com.google.gson.Gson;
 
 import App.Cliente;
@@ -32,9 +44,9 @@ public class Main {
 		// aqui o server ja recebe a chave publica do cliente, e pode
 		// criptografar mensagens pra ele
 		String recebido = cripto.decriptarMensagem(encriptado, server);
-		
-		
-		//CANAL DE COMUNICAÇÃO ENTRE OS ENDPOINTS
+
+
+		//CANAL DE COMUNICAï¿½ï¿½O ENTRE OS ENDPOINTS
 		System.out.print("Enviando mensagem ");
 		for(int i = 0; i<5; i++){
 			Thread.sleep(1000);
@@ -52,7 +64,7 @@ public class Main {
 		// processo
 		byte[] encriptado2 = cripto.encriptarMensagem(enviado2, server);
 
-		//CANAL DE COMUNICAÇÃO ENTRE OS ENDPOINTS
+		//CANAL DE COMUNICAï¿½ï¿½O ENTRE OS ENDPOINTS
 		System.out.print("Enviando resposta ");
 		for(int i = 0; i<5; i++){
 			Thread.sleep(1000);
@@ -60,7 +72,7 @@ public class Main {
 		}
 		System.out.println();
 		//
-		
+
 		System.out.println("Mensagem Middle [Servidor -> Cliente]: " + new String(encriptado2));
 		// aqui o server ja recebe a chave publica do cliente, e pode
 		// criptografar mensagens pra ele

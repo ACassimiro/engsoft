@@ -6,7 +6,7 @@ import java.security.PublicKey;
 import com.google.gson.Gson;
 
 /**
- * @version 0.1
+ * @version 0.2
  * @since 0.1
  * @author Abraao, Aellison, Jose, Pedro
  *
@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 public abstract class FronteiraCriptografada {
 
 	/**
-	 * @version 0.1
+	 * @version 0.2
 	 * @since 0.1
 	 * @param mensagem
 	 *            Mensagem para envio ao endpoint de comunicacao.
